@@ -35,13 +35,13 @@ public class VirtualPet {
         return boredomLevel;
     }
 
-    public void tick(){
+    public void tick() {
         hungerLevel -= 1;
         boredomLevel -= 1;
         thirstLevel -= 1;
     }
 
-    public void play(){
+    public void play() {
         boredomLevel += 2;
     }
 

@@ -23,15 +23,15 @@ public class VirtualPetShelterApp {
 
         //User options
         while (choice != 6) {
-        System.out.println("How would you like to interact with the pets?");
-        System.out.println("1. Feed the pets");
-        System.out.println("2. Give the pets fresh water");
-        System.out.println("3. Play with the pets");
-        System.out.println("4. Adopt a pet");
-        System.out.println("5. Surrender a pet to the shelter");
-        System.out.println("6. Leave the shelter");
-        Scanner input = new Scanner(System.in);
-        choice = input.nextInt();
+            System.out.println("How would you like to interact with the pets?");
+            System.out.println("1. Feed the pets");
+            System.out.println("2. Give the pets fresh water");
+            System.out.println("3. Play with the pets");
+            System.out.println("4. Adopt a pet");
+            System.out.println("5. Surrender a pet to the shelter");
+            System.out.println("6. Leave the shelter");
+            Scanner input = new Scanner(System.in);
+            choice = input.nextInt();
 
             switch (choice) {
                 case 1:
@@ -89,7 +89,7 @@ public class VirtualPetShelterApp {
                     String petIntake = intakeInput.nextLine();
                     System.out.println("Please describe the pet to be surrendered");
                     String petIntake2 = intakeInput.nextLine();
-                    VirtualPet surrender = myShelter.intake(new VirtualPet(petIntake, petIntake2, 50, 50 , 50));
+                    VirtualPet surrender = myShelter.intake(new VirtualPet(petIntake, petIntake2, 50, 50, 50));
                     System.out.println("You've surrendered " + petIntake + " to Hades Pet Shelter.");
                     System.out.println(myShelter.getAllPets() + " are now adoptable \n");
                     break;

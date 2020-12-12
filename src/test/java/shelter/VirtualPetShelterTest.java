@@ -1,7 +1,9 @@
 package shelter;
 
 import org.junit.jupiter.api.Test;
+
 import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VirtualPetShelterTest {
@@ -17,28 +19,29 @@ public class VirtualPetShelterTest {
     VirtualPet anotherTestPet = new VirtualPet("ANOTHERTESTPETANOTHERTEST", "I AM ONLY A TEST CHECK CHECK", 50, 50, 50);
 
     @Test
-    public void shouldDisplayPetNameAndStats(){
+    public void shouldDisplayPetNameAndStats() {
         testShelter.intake(testPet);
         System.out.println(testShelter.displayPet());
     }
 
     @Test
-    public void shouldBeAbleToIntakePet(){
+    public void shouldBeAbleToIntakePet() {
         testShelter.intake(anotherTestPet);
         int result = testShelter.shelterSize();
         assertEquals(1, result);
     }
 
     @Test
-    public void shouldBeAbleToAdoptPet(){
+    public void shouldBeAbleToAdoptPet() {
         testShelter.intake(testPet);
         testShelter.intake(anotherTestPet);
         testShelter.adopt(testPet);
         int result = testShelter.shelterSize();
         assertEquals(1, result);
     }
+
     @Test
-    public void shouldBeAbleToGetListOfAllPetsInMap(){
+    public void shouldBeAbleToGetListOfAllPetsInMap() {
         testShelter.intake(testPet);
         testShelter.intake(anotherTestPet);
         Collection<String> result = testShelter.getAllPets();
@@ -46,15 +49,16 @@ public class VirtualPetShelterTest {
     }
 
     @Test
-    public void shouldBeAbleToGetSizeOfShelter(){
+    public void shouldBeAbleToGetSizeOfShelter() {
         testShelter.intake(testPet);
         testShelter.intake(anotherTestPet);
         testShelter.shelterSize();
         assertEquals(2, testShelter.shelterSize());
         System.out.println(testShelter.shelterSize());
     }
+
     @Test
-    public void eatCounterShouldAddToHungerLevelOfAllPets(){
+    public void eatCounterShouldAddToHungerLevelOfAllPets() {
         testShelter.intake(testPet);
         testShelter.intake(anotherTestPet);
         testShelter.eatCounter();
@@ -63,7 +67,7 @@ public class VirtualPetShelterTest {
     }
 
     @Test
-    public void drinkCounterShouldAddToThirstLevelOfAllPets(){
+    public void drinkCounterShouldAddToThirstLevelOfAllPets() {
         testShelter.intake(testPet);
         testShelter.intake(anotherTestPet);
         testShelter.drinkCounter();
@@ -72,7 +76,7 @@ public class VirtualPetShelterTest {
     }
 
     @Test
-    public void playCounterShouldAddToBoredomLevelOfPet(){
+    public void playCounterShouldAddToBoredomLevelOfPet() {
         testShelter.intake(testPet);
         testPet.play();
         assertEquals(52, testPet.getBoredomLevel());

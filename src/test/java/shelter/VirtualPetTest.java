@@ -1,6 +1,7 @@
 package shelter;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
@@ -13,44 +14,44 @@ public class VirtualPetTest {
     VirtualPet testPet = new VirtualPet(PET_NAME, PET_DESCRIPTION, 50, 50, 50);
 
     @Test
-    public void petShouldHaveAName(){
+    public void petShouldHaveAName() {
         assertEquals(PET_NAME, testPet.getPetName());
     }
 
     @Test
-    public void petShouldHaveADescription(){
+    public void petShouldHaveADescription() {
         assertEquals(PET_DESCRIPTION, testPet.getPetDescription());
     }
 
     @Test
-    public void petShouldHaveHungerLevel(){
+    public void petShouldHaveHungerLevel() {
         assertEquals(HUNGER_LEVEL, testPet.getHungerLevel());
     }
 
     @Test
-    public void petShouldHaveThirstLevel(){
+    public void petShouldHaveThirstLevel() {
         assertEquals(THIRST_LEVEL, testPet.getThirstLevel());
     }
 
     @Test
-    public void petShouldHaveBoredomLevel(){
+    public void petShouldHaveBoredomLevel() {
         assertEquals(BOREDOM_LEVEL, testPet.getBoredomLevel());
     }
 
     @Test
-    public void playMethodShouldAddToBoredomLevel(){
+    public void playMethodShouldAddToBoredomLevel() {
         testPet.play();
         assertEquals(52, testPet.getBoredomLevel());
     }
 
     @Test
-    public void eatMethodShouldAddToHungerLevel(){
+    public void eatMethodShouldAddToHungerLevel() {
         testPet.eat();
         assertEquals(52, testPet.getHungerLevel());
     }
 
     @Test
-    public void drinkMethodShouldAddToThirstLevel(){
+    public void drinkMethodShouldAddToThirstLevel() {
         testPet.drink();
         assertEquals(52, testPet.getThirstLevel());
     }
