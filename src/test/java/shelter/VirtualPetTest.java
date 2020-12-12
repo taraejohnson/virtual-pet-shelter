@@ -14,40 +14,44 @@ public class VirtualPetTest {
 
     @Test
     public void petShouldHaveAName(){
-        assertEquals(testPet.getPetName(), PET_NAME);
+        assertEquals(PET_NAME, testPet.getPetName());
     }
 
     @Test
     public void petShouldHaveADescription(){
-        assertEquals(testPet.getPetDescription(), PET_DESCRIPTION);
+        assertEquals(PET_DESCRIPTION, testPet.getPetDescription());
     }
 
     @Test
     public void petShouldHaveHungerLevel(){
-        assertEquals(testPet.getHungerLevel(), HUNGER_LEVEL);
+        assertEquals(HUNGER_LEVEL, testPet.getHungerLevel());
     }
 
     @Test
     public void petShouldHaveThirstLevel(){
-        assertEquals(testPet.getThirstLevel(), THIRST_LEVEL);
+        assertEquals(THIRST_LEVEL, testPet.getThirstLevel());
     }
 
     @Test
     public void petShouldHaveBoredomLevel(){
-        assertEquals(testPet.getBoredomLevel(), BOREDOM_LEVEL);
+        assertEquals(BOREDOM_LEVEL, testPet.getBoredomLevel());
     }
 
     @Test
-    public void petShouldBeAbleToEatToDecreaseHunger() {
-        int beforeFood = testPet.getHungerLevel();
-        testPet.eat();
-        int afterFood = testPet.getHungerLevel();
-        assertEquals(beforeFood - afterFood, 5);
+    public void playMethodShouldAddToBoredomLevel(){
+        testPet.play();
+        assertEquals(52, testPet.getBoredomLevel());
     }
 
-/*    @Test
-    drink*/
+    @Test
+    public void eatMethodShouldAddToHungerLevel(){
+        testPet.eat();
+        assertEquals(52, testPet.getHungerLevel());
+    }
 
-/*    @Test
-    play*/
+    @Test
+    public void drinkMethodShouldAddToThirstLevel(){
+        testPet.drink();
+        assertEquals(52, testPet.getThirstLevel());
+    }
 }

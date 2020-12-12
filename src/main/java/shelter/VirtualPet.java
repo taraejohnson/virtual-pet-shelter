@@ -1,13 +1,5 @@
 package shelter;
 
-/*include instance variables representing:
-        name (from the above example, this might be 'Tommy')
-        description (from the above example, this might be 'smells like a Stargazer lily fresh with morning dew')
-        include a constructor that accepts a name and description
-        include a constructor that, in addition to name and description, accepts default values for the pet’s attributes
-        (hunger, boredom, etc)
-        Do not include a default (zero arguments) constructor.*/
-
 public class VirtualPet {
     protected String petName;
     protected String petDescription;
@@ -43,7 +35,21 @@ public class VirtualPet {
         return boredomLevel;
     }
 
-    public int eat(){
-        return hungerLevel++;
+    public void tick(){
+        hungerLevel -= 1;
+        boredomLevel -= 1;
+        thirstLevel -= 1;
+    }
+
+    public void play(){
+        boredomLevel += 2;
+    }
+
+    public void eat() {
+        hungerLevel += 2;
+    }
+
+    public void drink() {
+        thirstLevel += 2;
     }
 }

@@ -1,53 +1,72 @@
 package shelter;
 
-/*include appropriate instance variable(s) to store the pets who reside at the shelter
-        include methods that:
-            return a Collection of all of the pets in the shelter
-            return a specific VirtualPet given its name
-            allow intake of a homeless pet (adding a pet to the shelter)
-            allow adoption of a homeless pet (removing a pet from the shelter)
-            feed all of the pets in the shelter
-            water all of the pets in the shelter
-            plays (or performs some other interaction(s)) with an individual pet in the shelter
-            include a tick method that calls the tick method for each of the pets in the shelter, updating their needs*/
-
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Scanner;
+import java.util.Map.Entry;
 
 public class VirtualPetShelter {
 
-    Scanner input = new Scanner(System.in);
     private HashMap<String, VirtualPet> virtualShelterPets = new HashMap<>();
 
-    public void intake(VirtualPet virtualPet) {
-        virtualShelterPets.put(virtualPet.getPetName(), virtualPet);
-    }
-
-    public VirtualPet getVirtualPet(String petName){
-        return virtualShelterPets.get(petName);
-    }
-
-    public Collection<String> getAllPets() {
-        return virtualShelterPets.keySet();
-    }
-
-    public int shelterSize() {
-        return virtualShelterPets.size();
-    }
-
-    public void adopt() {
-        System.out.println("Which pet would you like to adopt?");
-        String petName = input.nextLine();
-        virtualShelterPets.remove(petName);
-    }
-
-    public String listOfAllPets(){
-        String allPetsString = "";
-        for(String i : getAllPets()){
-            allPetsString += i + "\n";
+    public String displayPet () {
+        String iteration = "";
+        for (Entry<String, VirtualPet> displayPetName : virtualShelterPets.entrySet()) {
+            displayPetName.getValue();
+            iteration += displayPetName.getValue().getPetName() + "\t|" + displayPetName.getValue().getHungerLevel() +
+                    "\t\t\t|" + displayPetName.getValue().getThirstLevel() + "\t\t\t|" + displayPetName.getValue().getBoredomLevel()
+                    + "\n";
         }
-        return allPetsString;
-    }
+        return iteration;
+        }
+
+        public VirtualPet intake (VirtualPet VirtualPet){
+            virtualShelterPets.put(VirtualPet.getPetName(), VirtualPet);
+            return VirtualPet;
+        }
+
+        public Collection<String> getAllPets () {
+            return virtualShelterPets.keySet();
+        }
+
+        public int shelterSize() {
+            return virtualShelterPets.size();
+        }
+
+        public void adopt (VirtualPet VirtualPet){
+            virtualShelterPets.remove(VirtualPet.getPetName());
+            System.out.println("Congrats! You've adopted " + VirtualPet.getPetName());
+            System.out.println(getAllPets() + " are still adoptable. \n");
+        }
+
+        public void tickCounter() {
+            for (Entry<String, VirtualPet> tickDown : virtualShelterPets.entrySet()) {
+                tickDown.getValue().tick();
+            }
+        }
+
+        public void eatCounter() {
+            for (Entry<String, VirtualPet> tickUp : virtualShelterPets.entrySet()) {
+                tickUp.getValue().eat();
+            }
+            System.out.println("You've fed the pets! \n");
+        }
+
+        public void drinkCounter() {
+            for (Entry<String, VirtualPet> tickUp : virtualShelterPets.entrySet()) {
+                tickUp.getValue().drink();
+            }
+            System.out.println("You've given the pets fresh water! \n");
+        }
+
+        public void playCounter(VirtualPet VirtualPet){
+            VirtualPet.play();
+        }
+
+        public String petNameAndDescription() {
+            String nameAndDescription = "";
+            for (Entry<String, VirtualPet> petsInfo : virtualShelterPets.entrySet()) {
+                nameAndDescription += petsInfo.getValue().getPetName() + ": " + petsInfo.getValue().getPetDescription() + "\n";
+            }
+            return nameAndDescription;
+        }
 }

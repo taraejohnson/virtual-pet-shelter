@@ -1,17 +1,6 @@
 package shelter;
 
-/*Create a main method that…
-        implements a game loop.
-        asks for user input.
-        writes output to the console.
-        calls VirtualPetShelter’s tick method after each interaction
-
-Available user interface actions should include (at minimum)…
-        feeding all the pets
-        watering all the pets
-        playing with an individual pet, which should display a list of pet names and descriptions, allowing a user to select one
-        allow adoption of a pet, which should display a list of pet names and descriptions, allowing a user to select one.
-        allow intake of a pet, prompting the user for the pet’s information, requiring the user to (at minimum) specify name and description*/
+import java.util.Scanner;
 
 public class VirtualPetShelterApp {
 
@@ -19,22 +8,96 @@ public class VirtualPetShelterApp {
 
         VirtualPetShelter myShelter = new VirtualPetShelter();
 
-        VirtualPet pet1 = new VirtualPet("Zagreus", "Just trying to escape", 50, 50, 50);
-        VirtualPet pet2 = new VirtualPet("Dusa", "Always cleaning up after everyone", 50, 50, 50);
-        VirtualPet pet3 = new VirtualPet("Megaera", "Sick of her sisters", 50, 50, 50);
-        VirtualPet pet4 = new VirtualPet("Eurydice", "A beautiful singer and a natural homemaker", 50, 50, 50);
+        //Adding starting pets to shelter
+        VirtualPet pet1 = myShelter.intake(new VirtualPet("Zagreus", "Just trying to escape", 50, 50, 50));
+        VirtualPet pet2 = myShelter.intake(new VirtualPet("Dusa", "Always cleaning up after everyone", 50, 50, 50));
+        VirtualPet pet3 = myShelter.intake(new VirtualPet("Megaera", "Sick of her sisters", 50, 50, 50));
+        VirtualPet pet4 = myShelter.intake(new VirtualPet("Eury", "A beautiful singer", 50, 50, 50));
 
-        myShelter.intake(pet1);
-        myShelter.intake(pet2);
-        myShelter.intake(pet3);
-        myShelter.intake(pet4);
+        //Welcome message to user
+        System.out.println("Welcome to Hades Pet Shelter! \n");
+        System.out.println("Our currently adoptable pets are:\n");
+        System.out.println(myShelter.displayPet());
 
-        System.out.println("Name \t|Hunger \t|Thirst \t|Boredom");
-        System.out.println("----------------------------------------");
-        System.out.println(pet1.getPetName() + "\t|" + pet1.getHungerLevel() + "\t\t\t|" + pet1.getThirstLevel() + "\t\t\t|" + pet1.getBoredomLevel());
-        System.out.println(pet2.getPetName() + "\t|" + pet2.getHungerLevel() + "\t\t\t|" + pet2.getThirstLevel() + "\t\t\t|" + pet2.getBoredomLevel());
-        System.out.println(pet3.getPetName() + "\t|" + pet3.getHungerLevel() + "\t\t\t|" + pet3.getThirstLevel() + "\t\t\t|" + pet3.getBoredomLevel());
-        System.out.println(pet4.getPetName() + "|" + pet4.getHungerLevel() + "\t\t\t|" + pet4.getThirstLevel() + "\t\t\t|" + pet4.getBoredomLevel());
+        int choice = 0;
 
+        //User options
+        while (choice != 6) {
+        System.out.println("How would you like to interact with the pets?");
+        System.out.println("1. Feed the pets");
+        System.out.println("2. Give the pets fresh water");
+        System.out.println("3. Play with the pets");
+        System.out.println("4. Adopt a pet");
+        System.out.println("5. Surrender a pet to the shelter");
+        System.out.println("6. Leave the shelter");
+        Scanner input = new Scanner(System.in);
+        choice = input.nextInt();
+
+            switch (choice) {
+                case 1:
+                    //feed
+                    myShelter.eatCounter();
+                    break;
+                case 2:
+                    //water
+                    myShelter.drinkCounter();
+                    break;
+                case 3:
+                    //play
+                    System.out.println(myShelter.petNameAndDescription());
+                    System.out.println("Which pet would you like to play with?");
+                    Scanner playInput = new Scanner(System.in);
+                    String playChoice = playInput.nextLine();
+                    if (playChoice.equalsIgnoreCase(pet1.getPetName())) {
+                        myShelter.playCounter(pet1);
+                    } else if (playChoice.equalsIgnoreCase(pet2.getPetName())) {
+                        myShelter.playCounter(pet2);
+                    } else if (playChoice.equalsIgnoreCase(pet3.getPetName())) {
+                        myShelter.playCounter(pet3);
+                    } else if (playChoice.equalsIgnoreCase(pet4.getPetName())) {
+                        myShelter.playCounter(pet4);
+                    } else {
+                        System.out.println("Uh oh! Pet does not exist, or isn't ready to play right now. \n");
+                        break;
+                    }
+                    break;
+                case 4:
+                    //adoption of pets
+                    System.out.println("Which pet would you like to adopt?\n");
+                    System.out.println(myShelter.petNameAndDescription());
+                    Scanner adoptInput = new Scanner(System.in);
+                    String petChoice = adoptInput.nextLine();
+
+                    if (petChoice.equalsIgnoreCase(pet1.getPetName())) {
+                        myShelter.adopt(pet1);
+                    } else if (petChoice.equalsIgnoreCase(pet2.getPetName())) {
+                        myShelter.adopt(pet2);
+                    } else if (petChoice.equalsIgnoreCase(pet3.getPetName())) {
+                        myShelter.adopt(pet3);
+                    } else if (petChoice.equalsIgnoreCase(pet4.getPetName())) {
+                        myShelter.adopt(pet4);
+                    } else {
+                        System.out.println("Oh no! Pet does not exist, or is too new to be adopted. \n");
+                        break;
+                    }
+                    break;
+
+                case 5:
+                    //intake of new pets
+                    System.out.println("Please tell us the name of the pet to be surrendered");
+                    Scanner intakeInput = new Scanner(System.in);
+                    String petIntake = intakeInput.nextLine();
+                    System.out.println("Please describe the pet to be surrendered");
+                    String petIntake2 = intakeInput.nextLine();
+                    VirtualPet surrender = myShelter.intake(new VirtualPet(petIntake, petIntake2, 50, 50 , 50));
+                    System.out.println("You've surrendered " + petIntake + " to Hades Pet Shelter.");
+                    System.out.println(myShelter.getAllPets() + " are now adoptable \n");
+                    break;
+            }
+            myShelter.tickCounter();
+            System.out.println("Name \t|Hunger \t|Thirst \t|Boredom");
+            System.out.println("----------------------------------------");
+            System.out.println(myShelter.displayPet());
+        }
     }
 }
