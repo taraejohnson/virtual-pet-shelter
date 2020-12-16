@@ -9,10 +9,10 @@ public class VirtualPetShelterApp {
         VirtualPetShelter myShelter = new VirtualPetShelter();
 
         //Adding starting pets to shelter
-        VirtualPet pet1 = myShelter.intake(new VirtualPet("Zagreus", "Just trying to escape", 50, 50, 50));
-        VirtualPet pet2 = myShelter.intake(new VirtualPet("Dusa", "Always cleaning up after everyone", 50, 50, 50));
-        VirtualPet pet3 = myShelter.intake(new VirtualPet("Megaera", "Sick of her sisters", 50, 50, 50));
-        VirtualPet pet4 = myShelter.intake(new VirtualPet("Eury", "A beautiful singer", 50, 50, 50));
+        VirtualPet pet1 = myShelter.intake(new RoboticDog("Zagreus", "Just trying to escape", 50, 50, 50));
+        VirtualPet pet2 = myShelter.intake(new RoboticCat("Dusa", "Always cleaning up after everyone", 50, 50, 50));
+        VirtualPet pet3 = myShelter.intake(new OrganicDog("Megaera", "Sick of her sisters", 50, 50, 50));
+        VirtualPet pet4 = myShelter.intake(new OrganicCat("Eury", "A beautiful singer", 50, 50, 50));
 
         //Welcome message to user
         System.out.println("Welcome to Hades Pet Shelter! \n");
@@ -24,12 +24,16 @@ public class VirtualPetShelterApp {
         //User options
         while (choice != 6) {
             System.out.println("How would you like to interact with the pets?");
-            System.out.println("1. Feed the pets");
-            System.out.println("2. Give the pets fresh water");
-            System.out.println("3. Play with the pets");
-            System.out.println("4. Adopt a pet");
-            System.out.println("5. Surrender a pet to the shelter");
-            System.out.println("6. Leave the shelter");
+            System.out.println("1. Feed the organic pets");
+            System.out.println("2. Give the organic pets fresh water");
+            System.out.println("3. Give robotic pets oil");
+            System.out.println("4. Do maintenance on robotic pets");
+            System.out.println("5. Play with the pets");
+            System.out.println("6. Clean up after pets");
+            System.out.println("7. Take the pets on a walk");
+            System.out.println("8. Adopt a pet");
+            System.out.println("9. Surrender a pet to the shelter");
+            System.out.println("10. Leave the shelter");
             Scanner input = new Scanner(System.in);
             choice = input.nextInt();
 

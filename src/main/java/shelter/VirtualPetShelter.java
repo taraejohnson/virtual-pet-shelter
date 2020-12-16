@@ -42,6 +42,7 @@ public class VirtualPetShelter {
         for (Entry<String, VirtualPet> tickDown : virtualShelterPets.entrySet()) {
             tickDown.getValue().tick();
         }
+
     }
 
     public void eatCounter() {

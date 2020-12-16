@@ -3,9 +3,12 @@ package shelter;
 public class VirtualPet {
     protected String petName;
     protected String petDescription;
-    private int hungerLevel;
-    private int boredomLevel;
-    private int thirstLevel;
+    protected int hungerLevel;
+    protected int boredomLevel;
+    protected int thirstLevel;
+    protected int oilLevel;
+    protected int maintenanceLevel;
+    protected int soilLevel;
 
     public VirtualPet(String petName, String petDescription, int hungerLevel, int boredomLevel, int thirstLevel) {
         this.petName = petName;
@@ -23,6 +26,14 @@ public class VirtualPet {
         return petDescription;
     }
 
+    public int getBoredomLevel() {
+        return boredomLevel;
+    }
+
+    public void play() {
+        boredomLevel += 2;
+    }
+
     public int getHungerLevel() {
         return hungerLevel;
     }
@@ -31,18 +42,24 @@ public class VirtualPet {
         return thirstLevel;
     }
 
-    public int getBoredomLevel() {
-        return boredomLevel;
+    public int getSoilLevel(){
+        return soilLevel;
     }
 
-    public void tick() {
-        hungerLevel -= 1;
-        boredomLevel -= 1;
-        thirstLevel -= 1;
+    public int getOilLevel(){
+        return oilLevel;
     }
 
-    public void play() {
-        boredomLevel += 2;
+    public int getMaintenanceLevel(){
+        return maintenanceLevel;
+    }
+
+    public void oil(){
+        oilLevel++;
+    }
+
+    public void maintenance(){
+        maintenanceLevel++;
     }
 
     public void eat() {
@@ -52,4 +69,9 @@ public class VirtualPet {
     public void drink() {
         thirstLevel += 2;
     }
+
+    public void clean(){
+        soilLevel++;
+    }
+
 }
