@@ -1,14 +1,8 @@
 package shelter;
 
-public abstract class OrganicPet extends VirtualPet{
-    public OrganicPet(String petName, String petDescription, int hungerLevel, int boredomLevel, int thirstLevel) {
-        super(petName, petDescription, hungerLevel, boredomLevel, thirstLevel);
-    }
-
-    public void orgTick() {
-        hungerLevel -= 1;
-        boredomLevel -= 1;
-        thirstLevel -= 1;
+public abstract class OrganicPet extends VirtualPet {
+    public OrganicPet(String petName, String petDescription, String petType, int hungerLevel, int boredomLevel, int thirstLevel, int soilLevel) {
+        super(petName, petDescription, petType, hungerLevel, boredomLevel, thirstLevel, soilLevel);
     }
 
 }

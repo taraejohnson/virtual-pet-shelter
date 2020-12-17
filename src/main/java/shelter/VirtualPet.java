@@ -3,6 +3,7 @@ package shelter;
 public class VirtualPet {
     protected String petName;
     protected String petDescription;
+    protected String petType;
     protected int hungerLevel;
     protected int boredomLevel;
     protected int thirstLevel;
@@ -10,12 +11,23 @@ public class VirtualPet {
     protected int maintenanceLevel;
     protected int soilLevel;
 
-    public VirtualPet(String petName, String petDescription, int hungerLevel, int boredomLevel, int thirstLevel) {
+    public VirtualPet(String petName, String petDescription, String petType, int hungerLevel, int boredomLevel, int thirstLevel, int soilLevel) {
         this.petName = petName;
         this.petDescription = petDescription;
+        this.petType = petType;
         this.hungerLevel = hungerLevel;
         this.boredomLevel = boredomLevel;
         this.thirstLevel = thirstLevel;
+        this.soilLevel = soilLevel;
+    }
+
+    public VirtualPet(String petName, String petDescription, String petType, int oilLevel, int maintenanceLevel, int boredomLevel) {
+        this.petName = petName;
+        this.petDescription = petDescription;
+        this.petType = petType;
+        this.oilLevel = oilLevel;
+        this.maintenanceLevel = maintenanceLevel;
+        this.boredomLevel = boredomLevel;
     }
 
     public String getPetName() {
@@ -26,12 +38,12 @@ public class VirtualPet {
         return petDescription;
     }
 
-    public int getBoredomLevel() {
-        return boredomLevel;
+    public String getPetType() {
+        return petType;
     }
 
-    public void play() {
-        boredomLevel += 2;
+    public int getBoredomLevel() {
+        return boredomLevel;
     }
 
     public int getHungerLevel() {
@@ -54,16 +66,27 @@ public class VirtualPet {
         return maintenanceLevel;
     }
 
+    public void play() {
+        boredomLevel += 2;
+    }
+
     public void oil(){
-        oilLevel++;
+        oilLevel += 2;
     }
 
     public void maintenance(){
-        maintenanceLevel++;
+        maintenanceLevel += 2;
     }
 
     public void eat() {
         hungerLevel += 2;
+    }
+
+    public void walk(){
+        soilLevel += 2;
+        boredomLevel += 2;
+        oilLevel -= 2;
+        maintenanceLevel -= 2;
     }
 
     public void drink() {
@@ -71,7 +94,16 @@ public class VirtualPet {
     }
 
     public void clean(){
-        soilLevel++;
+        soilLevel += 2;
+    }
+
+    public void tick(){
+        oilLevel -= 1;
+        maintenanceLevel -= 1;
+        hungerLevel -= 1;
+        boredomLevel -= 1;
+        thirstLevel -= 1;
+        soilLevel -= 1;
     }
 
 }
