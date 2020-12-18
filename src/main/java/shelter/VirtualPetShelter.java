@@ -15,8 +15,7 @@ public class VirtualPetShelter {
                 iteration += displayPetName.getValue().getPetName() + "\t|" + displayPetName.getValue().getPetType() + "\t|" + displayPetName.getValue().getHungerLevel() +
                         "\t\t\t\t|" + displayPetName.getValue().getThirstLevel() + "\t\t\t\t\t\t|" + displayPetName.getValue().getBoredomLevel() +
                         "\t\t\t|" + displayPetName.getValue().getSoilLevel() + "\n";
-            }
-            else if (displayPetName.getValue().getPetType().equalsIgnoreCase("Robotic")) {
+            } else if (displayPetName.getValue().getPetType().equalsIgnoreCase("Robotic")) {
                 iteration += displayPetName.getValue().getPetName() + "\t|" + displayPetName.getValue().getPetType() + "\t|" + displayPetName.getValue().getOilLevel() +
                         "\t\t\t\t|" + displayPetName.getValue().getMaintenanceLevel() + "\t\t\t\t\t\t|" + displayPetName.getValue().getBoredomLevel() +
                         "\t\t\t|--" + "\n";
@@ -26,7 +25,7 @@ public class VirtualPetShelter {
     }
 
     public VirtualPet intake(VirtualPet VirtualPet) {
-            virtualShelterPets.put(VirtualPet.getPetName(), VirtualPet);
+        virtualShelterPets.put(VirtualPet.getPetName(), VirtualPet);
         return VirtualPet;
     }
 

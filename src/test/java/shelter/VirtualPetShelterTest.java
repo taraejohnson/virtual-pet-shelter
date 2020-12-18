@@ -11,12 +11,13 @@ public class VirtualPetShelterTest {
     VirtualPetShelter testShelter = new VirtualPetShelter();
     public static final String PET_NAME = "TESTPETTESTPETTESTPET";
     public static final String PET_DESCRIPTION = "I AM JUST A TEST PET";
+    public static final String PET_TYPE = "ORGANIC TEST";
     public static final int HUNGER_LEVEL = 50;
     public static final int THIRST_LEVEL = 50;
     public static final int BOREDOM_LEVEL = 50;
     private HashMap<String, VirtualPet> testShelterMap = new HashMap<>();
-    VirtualPet testPet = new VirtualPet(PET_NAME, PET_DESCRIPTION, HUNGER_LEVEL, THIRST_LEVEL, BOREDOM_LEVEL);
-    VirtualPet anotherTestPet = new VirtualPet("ANOTHERTESTPETANOTHERTEST", "I AM ONLY A TEST CHECK CHECK", 50, 50, 50);
+    VirtualPet testPet = new VirtualPet(PET_NAME, PET_DESCRIPTION, PET_TYPE, HUNGER_LEVEL, THIRST_LEVEL, BOREDOM_LEVEL);
+    VirtualPet anotherTestPet = new VirtualPet("ANOTHERTESTPETANOTHERTEST", "I AM ONLY A TEST CHECK CHECK", "ORGANIC TEST", 50, 50, 50);
 
     @Test
     public void shouldDisplayPetNameAndStats() {

@@ -54,15 +54,15 @@ public class VirtualPet {
         return thirstLevel;
     }
 
-    public int getSoilLevel(){
+    public int getSoilLevel() {
         return soilLevel;
     }
 
-    public int getOilLevel(){
+    public int getOilLevel() {
         return oilLevel;
     }
 
-    public int getMaintenanceLevel(){
+    public int getMaintenanceLevel() {
         return maintenanceLevel;
     }
 
@@ -70,11 +70,11 @@ public class VirtualPet {
         boredomLevel += 2;
     }
 
-    public void oil(){
+    public void oil() {
         oilLevel += 2;
     }
 
-    public void maintenance(){
+    public void maintenance() {
         maintenanceLevel += 2;
     }
 
@@ -82,7 +82,7 @@ public class VirtualPet {
         hungerLevel += 2;
     }
 
-    public void walk(){
+    public void walk() {
         soilLevel += 2;
         boredomLevel += 2;
         oilLevel -= 2;
@@ -93,11 +93,11 @@ public class VirtualPet {
         thirstLevel += 2;
     }
 
-    public void clean(){
+    public void clean() {
         soilLevel += 2;
     }
 
-    public void tick(){
+    public void tick() {
         oilLevel -= 1;
         maintenanceLevel -= 1;
         hungerLevel -= 1;

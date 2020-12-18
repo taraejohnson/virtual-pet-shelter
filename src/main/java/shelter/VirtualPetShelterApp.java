@@ -10,9 +10,9 @@ public class VirtualPetShelterApp {
         VirtualPetShelter myShelter = new VirtualPetShelter();
 
         //Adding starting pets to shelter
-        VirtualPet pet1 = myShelter.intake(new RoboticDog("Zagreus", "Just trying to escape", "Robotic",50, 50, 50));
-        VirtualPet pet2 = myShelter.intake(new RoboticCat("Dusa", "Always cleaning up after everyone", "Robotic",50, 50, 50));
-        VirtualPet pet3 = myShelter.intake(new OrganicDog("Megaera", "Sick of her sisters", "Organic",50, 50, 50, 50));
+        VirtualPet pet1 = myShelter.intake(new RoboticDog("Zagreus", "Just trying to escape", "Robotic", 50, 50, 50));
+        VirtualPet pet2 = myShelter.intake(new RoboticCat("Dusa", "Always cleaning up after everyone", "Robotic", 50, 50, 50));
+        VirtualPet pet3 = myShelter.intake(new OrganicDog("Megaera", "Sick of her sisters", "Organic", 50, 50, 50, 50));
         VirtualPet pet4 = myShelter.intake(new OrganicCat("Eury", "A beautiful singer", "Organic", 50, 50, 50, 50));
 
         //Welcome message to user
@@ -122,7 +122,7 @@ public class VirtualPetShelterApp {
                     String petIntake4 = intakeInput.nextLine();
 
                     if (petIntake2.equalsIgnoreCase("Organic") && petIntake3.equalsIgnoreCase("Dog")) {
-                        VirtualPet surrender = myShelter.intake(new OrganicDog(petIntake, petIntake4, petIntake2, 50,50,50,50));
+                        VirtualPet surrender = myShelter.intake(new OrganicDog(petIntake, petIntake4, petIntake2, 50, 50, 50, 50));
 
                     } else if (petIntake2.equalsIgnoreCase("Robotic") && petIntake3.equalsIgnoreCase("Dog")) {
                         VirtualPet surrender = myShelter.intake(new RoboticDog(petIntake, petIntake4, petIntake2, 50, 50, 50));
